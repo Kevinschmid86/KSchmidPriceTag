@@ -34,6 +34,9 @@ class Shopware_Controllers_Backend_KSchmidPriceTagPdfPrint extends Shopware_Cont
         $shop = $repository->getActiveById($shopId);
         $shop->registerResources();
 
+        $this->View()->addTemplateDir(__DIR__ . '/../../Resources/Views/');
+        $this->View()->loadTemplate('documents/price_tag.tpl');
+
         $templateEngine = clone Shopware()->Template();
         $template = $templateEngine->createTemplate(__DIR__ . '/../../Resources/Views/documents/price_tag.tpl','price_tag');
 
